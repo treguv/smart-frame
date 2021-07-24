@@ -3,6 +3,7 @@ const router = require('express').Router();
 //get all messages 
 router.get("/", (req, res) => {
     console.log("messages get req recieved")
+    res.send("Recieved...");
 });
 
 //Post a message
