@@ -1,0 +1,22 @@
+{
+  "name": "smart-frame",
+  "version": "1.0.0",
+  "description": "This project will be running on a raspberry pi with a screen as a frame. it allows you to send images, text, etc to the pie remotly from a website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treguv/smart-frame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/treguv/smart-frame/issues"
+  },
+  "homepage": "https://github.com/treguv/smart-frame#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
