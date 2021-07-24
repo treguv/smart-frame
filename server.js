@@ -1,5 +1,6 @@
 const routes = require('./backend')
 const express = require('express')
+const sequelize = require('./backend/sqldb/connection')
 const app = express()
  
 
