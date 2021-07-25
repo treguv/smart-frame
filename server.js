@@ -4,7 +4,7 @@ const sequelize = require('./backend/sqldb/connection');
 const path = require('path');
 const app = express();
 //set up port for when it is in prod
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
   res.send('Hello World')
