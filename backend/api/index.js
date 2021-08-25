@@ -8,4 +8,5 @@ const bibleRoutes = require('./bible-routes');
 router.use("/messages", messageRoutes);
 router.use("/images", imageRoutes);
 router.use("/date", dateRoutes);
+router.use("/verse", bibleRoutes)
 module.exports = router;
