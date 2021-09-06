@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const Image = require( "../models/Image");
 //get all images 
 router.get("/", (req, res) => {
     console.log("image get req recieved");
@@ -8,8 +8,14 @@ router.get("/", (req, res) => {
 
 //Post a image
 router.post("/", (req, res) => {
-    console.log("image post req recieved");
-    res.send("Recieved...");
+    console.log(req.body.imageURL);
+    Image.create({
+        imageURL: req.body.imageURL
+    }).then(imageData => {res.json(imageData)})
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({message:err.message});
+    });
 });
 
 //delete an image
