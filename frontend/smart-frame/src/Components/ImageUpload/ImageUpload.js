@@ -14,8 +14,14 @@ function ImageUpload(){
         //make post requests
         Axios.post(`http://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`, formData)
         .then(response => {
-            console.log(response);
-        });
+            console.log(response.data);
+            const data = {
+                "imageURL" : response.data.url
+            }
+            Axios.post("http://localhost:3001/api/images", data)
+            .then(response => console.log(response))
+            .catch(err => console.log(err));
+       });
     }
 
     return(
