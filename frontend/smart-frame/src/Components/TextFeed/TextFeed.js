@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Axios from "axios";
-import {Container, Grid,Typography} from "@material-ui/core";
+import {Button,Container, Grid,Typography} from "@material-ui/core";
 import TextBlock from "../TextBlock/TextBlock";
 require('dotenv').config()
 
@@ -22,8 +22,8 @@ const TextFeed = () => {
         <Container maxWidth="sm">
         <Grid container spacing = {3}>
             {messages && (
-                messages.map(({messageText, messageTopic}) =>(
-                    <TextBlock text={messageText} topic={messageTopic}></TextBlock>
+                messages.map(({id, messageText, messageTopic}) =>(
+                    <TextBlock key={id} theId={id} text={messageText} topic={messageTopic}></TextBlock>
                 ))
             )}
         </Grid>

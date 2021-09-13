@@ -28,7 +28,9 @@ function TextUpload(){
             "messageTopic": options[selectedIndex]
         }
         Axios.post('http://localhost:3001/api/messages/', data)
-        .then((response) => console.log(response))
+        .then((response) => {
+          this.forceUpdate();
+        }) 
         .catch(error => console.log(error));
     }
 
