@@ -1,10 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import Axios from "axios";
-import {Button,Container, Grid,Typography, makeStyles} from "@material-ui/core";
+import {Button,Container, Grid,Typography, makeStyles, Divider} from "@material-ui/core";
 import TextBlock from "../TextBlock/TextBlock";
 require('dotenv').config()
 
+const useStyles = makeStyles({
+    padding: {
+        padding:"20px"
+    }
+})
 const TextFeed = () => {
+    const classes = useStyles();
     const [messages, setMessages] = useState(null);
     //on page load, get the data
     useEffect(() =>{
@@ -20,7 +26,8 @@ const TextFeed = () => {
     }
     return(
         <Container maxWidth="sm">
-            <Typography>Messages On Device: <br></br></Typography>
+            <Typography className={classes.padding} variant="h3">Messages On Device: <br></br></Typography>
+            <Divider></Divider>
         <Grid container spacing = {3}>
             {messages && (
                 messages.map(({id, messageText, messageTopic}) =>(
