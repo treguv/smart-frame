@@ -29,7 +29,7 @@ function TextUpload(){
         }
         Axios.post('http://localhost:3001/api/messages/', data)
         .then((response) => {
-          this.forceUpdate();
+          window.location.reload();
         }) 
         .catch(error => console.log(error));
     }

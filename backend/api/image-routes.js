@@ -31,6 +31,7 @@ router.delete("/:id", (req, res) => {
     }
   })
   .then (imageData => {
+    //TODO delete the image from clodinary too
       if(!imageData){
           res.status(404).json({message: "No image found with this id!"})
       }

@@ -19,7 +19,7 @@ function ImageUpload(){
                 "imageURL" : response.data.url
             }
             Axios.post("http://localhost:3001/api/images", data)
-            .then(response => console.log(response))
+            .then(response => window.location.reload())
             .catch(err => console.log(err));
        });
     }
