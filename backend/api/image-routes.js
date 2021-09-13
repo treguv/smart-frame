@@ -3,7 +3,9 @@ const Image = require("../models/Image");
 //get all images
 router.get("/", (req, res) => {
   console.log("image get req recieved");
-  res.send("Recieved...");
+  Image.findAll()
+  .then(result => res.json(result))
+  .catch(err => res.status(500).json({message: err}));
 });
 
 //Post a image
@@ -22,9 +24,22 @@ router.post("/", (req, res) => {
 });
 
 //delete an image
-router.delete("/", (req, res) => {
-  console.log("image delete req recieved");
-  res.send("Recieved...");
+router.delete("/:id", (req, res) => {
+  Image.destroy({
+    where: {
+        id: req.params.id
+    }
+  })
+  .then (imageData => {
+      if(!imageData){
+          res.status(404).json({message: "No image found with this id!"})
+      }
+      res.json(imageData);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+  })
 });
 
 //put a  image
