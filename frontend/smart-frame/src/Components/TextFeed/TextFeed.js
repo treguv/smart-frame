@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Axios from "axios";
-import {Button,Container, Grid,Typography} from "@material-ui/core";
+import {Button,Container, Grid,Typography, makeStyles} from "@material-ui/core";
 import TextBlock from "../TextBlock/TextBlock";
 require('dotenv').config()
 
@@ -20,6 +20,7 @@ const TextFeed = () => {
     }
     return(
         <Container maxWidth="sm">
+            <Typography>Messages On Device: <br></br></Typography>
         <Grid container spacing = {3}>
             {messages && (
                 messages.map(({id, messageText, messageTopic}) =>(
