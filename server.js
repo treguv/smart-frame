@@ -3,8 +3,9 @@ const express = require('express');
 const sequelize = require('./backend/sqldb/connection');
 const path = require('path');
 const app = express();
+const cors = require('cors');
 //set up port for when it is in prod
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -12,6 +13,9 @@ app.get('/', function (req, res) {
  
 // //express configs
 app.use(express.json());
+app.use(cors({
+  origin:"*"
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);

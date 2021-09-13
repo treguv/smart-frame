@@ -4,8 +4,8 @@
   "description": "This project will be running on a raspberry pi with a screen as a frame. it allows you to send images, text, etc to the pie remotly from a website",
   "main": "index.js",
   "scripts": {
-    "go" : "node server.js",
-    "start": "node server.js" ,
+    "go": "node server.js",
+    "start": "node server.js && cd frontend && cd smart-frame && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -21,16 +21,18 @@
   },
   "homepage": "https://github.com/treguv/smart-frame#readme",
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.6.5",
+    "@material-ui/core": "^4.12.3",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "sequelize": "^6.6.5",
     "web-vitals": "^1.1.2"
   },
   "eslintConfig": {
