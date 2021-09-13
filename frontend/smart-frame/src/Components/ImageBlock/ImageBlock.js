@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Axios from "axios";
-import {Button, Grid,Typography,Paper, makeStyles} from "@material-ui/core"
+import {Button, Grid,Typography,Paper, makeStyles, Card, CardContent, Divider, CardMedia} from "@material-ui/core"
 require('dotenv').config()
 
 const useStyles = makeStyles((theme) => ({
@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const ImageBlock = ({theId, imgURL}) => {
+    const classes = useStyles();
     const [visible, setVisible] = useState(true);
     const deleteImage = () => {
         console.log("clicked!");
@@ -21,12 +22,23 @@ const ImageBlock = ({theId, imgURL}) => {
     if(visible){
         return (
             <Grid id={theId} item xs={4}>
-                <img height={50} src={imgURL}/>
-            <Button color ="inherit" onClick={deleteImage}>Delete</Button>
+                <Card >
+                    <img height={50} src={imgURL}/>
+                    <CardContent>
+                        <Divider></Divider>
+                         <Button color ="inherit" onClick={deleteImage}>Delete</Button>
+                    </CardContent>
+                </Card>
             </Grid>
         )
     } else {
-        return <Typography> Deleted...</Typography>
+        return (
+            <Grid id={theId} item xs={4}>
+                <Card >
+                   <Typography variant="body2">Deleted...</Typography>
+                </Card>
+            </Grid>
+        ) 
     }
 }
 

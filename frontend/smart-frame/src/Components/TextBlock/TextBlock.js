@@ -36,8 +36,8 @@ const TextBlock = ({theId,text, topic}) => {
             {/* <Button color ="inherit" onClick={deleteText}>Delete</Button> */}
                 <Card className = {classes.root}>
                     <CardContent>
-                        <Typography variant="h4" className={classes}>{text}</Typography>
-                        <Typography variant="body2" className={classes}>Type: {topic}</Typography>
+                        <Typography variant="h4">{text}</Typography>
+                        <Typography variant="body2" >Type: {topic}</Typography>
                         <Divider></Divider>
                         <Button color ="inherit" onClick={deleteText}>Delete</Button>
                     </CardContent>

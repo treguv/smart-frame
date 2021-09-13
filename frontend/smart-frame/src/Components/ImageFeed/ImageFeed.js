@@ -1,10 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import Axios from "axios";
-import {Button,Container, Grid,Typography} from "@material-ui/core";
+import {Button,Container, Grid,Typography, makeStyles} from "@material-ui/core";
 import ImageBlock from "../ImageBlock/ImageBlock";
 require('dotenv').config()
 
+const useStyles = makeStyles({
+    padding: {
+        padding:"20px"
+    }
+})
+
 const ImageFeed = () => {
+    const classes = useStyles();
     const [images, setImages] = useState(null);
     //on page load, get the data
     useEffect(() =>{
@@ -20,6 +27,7 @@ const ImageFeed = () => {
     }
     return(
         <Container maxWidth="sm">
+        <Typography variant="h3" className={classes.padding}>Images On Device:</Typography>
         <Grid container spacing = {3}>
             {images && (
                 images.map(({id, imageURL}) =>(

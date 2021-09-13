@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Axios from "axios";
 import {Button, FormControl, InputLabel, Input, FormHelperText} from "@material-ui/core";
-import {List, ListItem, ListItemText, Menu, MenuItem, makeStyles} from "@material-ui/core";
+import {Typography, List, ListItem, ListItemText, Menu, MenuItem, makeStyles} from "@material-ui/core";
 require('dotenv').config()
 
 
@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
   },
+  padding: {
+    padding:"20px"
+  }
 }));
 
 const options = [
@@ -54,6 +57,7 @@ function TextUpload(){
 
     return(
         <div>
+          <Typography variant="h3" className={classes.padding}>Text Upload</Typography>
             <FormControl>
             <InputLabel htmlFor="my-input">Send a message</InputLabel>
             <Input id="my-input" aria-describedby="my-helper-text" onChange = {e => { setMessageText(e.target.value)}} />

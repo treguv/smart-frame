@@ -1,8 +1,18 @@
 import React, {useState} from 'react';
 import Axios from "axios";
-import {Button} from "@material-ui/core";
+import {Typography,Button, Divider, makeStyles} from "@material-ui/core";
 require('dotenv').config()
+
+const useStyles = makeStyles({
+    padding:{
+        padding:"20px"
+    },
+    margin: {
+        marginTop:"100px"
+    }
+})
 function ImageUpload(){
+    const classes = useStyles();
     console.log(process.env.REACT_APP_CLOUD_NAME)
     const [imageSelected, setImageSelected] = useState("");
     const uploadImage = () => {
@@ -25,11 +35,12 @@ function ImageUpload(){
     }
 
     return(
-        <div>
+        <div className={classes.padding, classes.margin}>
+            <Typography variant="h3">Upload Image</Typography>
             <input type = "file" onChange={e => {
                 setImageSelected(e.target.files[0]);
             }}></input>
-            
+            <Divider></Divider>
             <Button color="inherit" onClick ={() => {
                 uploadImage();
             }}>Upload Image</Button>
