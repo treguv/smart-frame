@@ -3,6 +3,7 @@ import Axios from "axios";
 import {Button,Container, Grid,Typography, makeStyles, Divider} from "@material-ui/core";
 import TextBlock from "../TextBlock/TextBlock";
 require('dotenv').config()
+const BASE_URL = process.env.BASE_URL;
 
 const useStyles = makeStyles({
     padding: {
@@ -18,7 +19,7 @@ const TextFeed = () => {
     }, []);
     //send request for the text data feed
     async function getData(){
-        const data = await Axios.get("http://localhost:3001/api/messages");
+        const data = await Axios.get(`${BASE_URL}/api/messages`);
         //set our data
         console.log("data",data.data);
         setMessages(data.data.reverse());

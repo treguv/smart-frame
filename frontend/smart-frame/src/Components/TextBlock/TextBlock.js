@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Axios from "axios";
 import {Button, Grid,Typography,Paper, makeStyles, Card, CardActions, CardContent, Divider} from "@material-ui/core"
 require('dotenv').config()
+const BASE_URL = process.env.BASE_URL;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,7 +25,7 @@ const TextBlock = ({theId,text, topic}) => {
     const [visible, setVisible] = useState(true);
     const deleteText = () => {
         console.log("clicked!");
-        Axios.delete(`http://localhost:3001/api/messages/${theId}`)
+        Axios.delete(`${BASE_URL}/api/messages/${theId}`)
         .then(response => console.log(response))
         .catch(err => console.error(err));
         setVisible(false);

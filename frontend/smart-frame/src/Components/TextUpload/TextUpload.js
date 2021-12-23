@@ -3,7 +3,7 @@ import Axios from "axios";
 import {Button, FormControl, InputLabel, Input, FormHelperText} from "@material-ui/core";
 import {Typography, List, ListItem, ListItemText, Menu, MenuItem, makeStyles} from "@material-ui/core";
 require('dotenv').config()
-
+const BASE_URL = process.env.BASE_URL;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +30,7 @@ function TextUpload(){
             "messageText": messageText,
             "messageTopic": options[selectedIndex]
         }
-        Axios.post('http://localhost:3001/api/messages/', data)
+        Axios.post(`${BASE_URL}/api/messages/`, data)
         .then((response) => {
           window.location.reload();
         }) 

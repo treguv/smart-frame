@@ -3,6 +3,7 @@ import Axios from "axios";
 import {Button,Container, Grid,Typography, makeStyles} from "@material-ui/core";
 import ImageBlock from "../ImageBlock/ImageBlock";
 require('dotenv').config()
+const BASE_URL = process.env.BASE_URL;
 
 const useStyles = makeStyles({
     padding: {
@@ -19,7 +20,7 @@ const ImageFeed = () => {
     }, []);
     //send request for the text data feed
     async function getData(){
-        const data = await Axios.get("http://localhost:3001/api/images");
+        const data = await Axios.get(`${BASE_URL}/api/images`);
         //set our data
         console.log("data",data.data);
         setImages(data.data.reverse());

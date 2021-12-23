@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Axios from "axios";
 import {Typography,Button, Divider, makeStyles} from "@material-ui/core";
 require('dotenv').config()
+const BASE_URL = process.env.BASE_URL;
 
 const useStyles = makeStyles({
     padding:{
@@ -28,7 +29,7 @@ function ImageUpload(){
             const data = {
                 "imageURL" : response.data.url
             }
-            Axios.post("http://localhost:3001/api/images", data)
+            Axios.post(`${BASE_URL}/api/images`, data)
             .then(response => window.location.reload())
             .catch(err => console.log(err));
        });

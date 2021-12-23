@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Image = require("../models/Image");
+
 //get all images
 router.get("/", (req, res) => {
   console.log("image get req recieved");
